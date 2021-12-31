@@ -57,6 +57,7 @@ export default function CreateIngredient() {
 
     return (
       <div>
+      <h1>Create Ingredient</h1>
       <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formName">
               <Form.Label>Ingredient name:</Form.Label>
