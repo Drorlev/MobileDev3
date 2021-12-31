@@ -16,7 +16,7 @@ const ingredientsIdsList={};
 const getDataFromChild=(id,check)=>{
   
   console.log("Father ",id,check);
-  ingredientsIdsList["'"+id+"'"]=check;
+  ingredientsIdsList[`${id}`]=check;
   console.log("id list ",ingredientsIdsList)
   TellCreateRecipe();
 }
@@ -24,12 +24,12 @@ const TellCreateRecipe = () => {
     let values=[];
     let filtered = Object.fromEntries(Object.entries(ingredientsIdsList).filter(([k,v]) => v === true));
     for (const key in filtered) {
-      values.push(key);
+      values.push(parseInt(key));
     }
 
     console.log("filterd list",filtered);
     console.log("values list",values);
-    props.send2Papa(filtered);
+    props.send2Papa(values);
 }
 
 const getIng=()=>{

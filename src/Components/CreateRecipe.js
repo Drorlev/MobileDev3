@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import IngredientList from './IngredientList';
 
 
-
+let ingredientsIDlist=[];
 const apiUrl = 'https://localhost:44344/api/recipes'
 
 export default function CreateRecipe() {
@@ -16,19 +16,47 @@ export default function CreateRecipe() {
     }
 
     const getDataFromChild=(list)=>{
-  
+      ingredientsIDlist=list;
       console.log("GrandFather ",list);
     }
 
-   
+    //handlethat shit!!
+    const fetchPostIDS = (result,ingID) => {
+      const recipeWID = { 
+        ID:result,
+        Name: "",
+        Image: "",
+        CookingMethod: "",
+        Time: "",
+      };
+      const apiUrl = 'https://localhost:44344/api/recipes?IngId='+ingID
+      fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify(recipeWID),
+        headers: new Headers({
+          'Content-type': 'application/json; charset=UTF-8', 
+          'Accept': 'application/json; charset=UTF-8'
+        })
+      })
+        .then(res => {
+          console.log('res=', res);
+          return res.json()
+        })
+        .then(
+          (result) => {
+            console.log("fetch POST= ", result);
+            console.log(result);
+           
+          },
+          (error) => {
+            console.log("err post=", error);
+          });
+
+    }
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         
-
-        alert("hello");
-
-        
-
         const recipe = { 
             Name: event.target[0].value,
             Image: event.target[1].value,
@@ -53,8 +81,10 @@ export default function CreateRecipe() {
             .then(
               (result) => {
                 console.log("fetch POST= ", result);
-                console.log(result.Name);
-               
+                console.log(result);
+                for (const key in ingredientsIDlist) {
+                  fetchPostIDS(result,ingredientsIDlist[key]);
+                }
               },
               (error) => {
                 console.log("err post=", error);
