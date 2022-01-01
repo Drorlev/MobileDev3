@@ -21,8 +21,8 @@ const Recipe = (props) => {
   }
 
   return (
-        <div>
-        <Card style={{ width: '16rem', display:'inline-block'}}>
+        
+        <Card style={{  width: '16rem', display:'inline-block',margin: '0.5%'}}>
           <Card.Title>Dish Recipe details:</Card.Title>
           <Card.Img variant="top" src={props.image} className="card-img-top" style={{maxHeight:"10rem"}} />
           <Card.Body>
@@ -32,9 +32,10 @@ const Recipe = (props) => {
               <Card.Text>total calories:: {props.calories}</Card.Text>
           </Card.Body>
           <Button onClick={handleShow}>Show Ingredinet</Button>
+          <ModalIng show={show} send2Papa={getDataFromChild}/>
         </Card>
-        <ModalIng show={show} send2Papa={getDataFromChild}/>
-        </div>
+        
+        
         );
 }
 

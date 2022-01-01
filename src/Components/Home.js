@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import Recipe from './Recipe';
+import Recipes from './Recipes';
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
 						<button onClick={btngo2CR}>New Recipe</button>
 						<button onClick={btngo2CI}>New Ingredient</button>
 				</div>
-				<Recipe/>
+				<Recipes/>
 			</div>
 	)
 }
