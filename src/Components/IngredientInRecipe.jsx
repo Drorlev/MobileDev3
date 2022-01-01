@@ -9,9 +9,11 @@ import { Card } from 'react-bootstrap';
 
     const IngredientInRecipe = (props) => {
 
+      /*
       const btnTellPapa = (event) => {
         props.send2Papa(props.id,event.target.checked);
       }
+      */
         return (
         <Card style={{ width: '16rem', display:'inline-block'}}>
           <Card.Img variant="top" src={props.image} className="card-img-top" style={{maxHeight:"10rem"}} />

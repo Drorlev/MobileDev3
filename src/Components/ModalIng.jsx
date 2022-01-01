@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal } from 'react-bootstrap';
+import IngredientInRecipe from './IngredientInRecipe';
 
 const ModalIng = (props) => {
     if(!props.show){
@@ -17,7 +18,9 @@ const ModalIng = (props) => {
         <Modal.Header closeButton onClick={TellRecipeToClose}>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <IngredientInRecipe/>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={TellRecipeToClose}>
             Close
