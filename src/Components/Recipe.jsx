@@ -7,7 +7,7 @@ import ModalIng from './ModalIng';
 
 const Recipe = (props) => {
   const [show,setShow] = useState(false);
-
+  console.log()
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -32,7 +32,7 @@ const Recipe = (props) => {
               <Card.Text>total calories: {props.calories}</Card.Text>
           </Card.Body>
           <Button onClick={handleShow}>Show Ingredinet</Button>
-          <ModalIng show={show} send2Papa={getDataFromChild}/>
+          <ModalIng show={show} send2Papa={getDataFromChild} id={props.id}/>
         </Card>
         
         

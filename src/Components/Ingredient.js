@@ -13,8 +13,7 @@ import { Card } from 'react-bootstrap';
           <Card.Img variant="top" src={props.image} className="card-img-top" style={{maxHeight:"10rem"}} />
           <Card.Body>
               <Card.Title>{props.name}</Card.Title>
-              <Card.Text>ID:{props.id}</Card.Text>
-              <Card.Text>Calories:{props.calories}</Card.Text>
+              <Card.Text>Calories: {props.calories}</Card.Text>
               <input type="checkbox" onChange={btnTellPapa}></input>
           </Card.Body>
         </Card>

@@ -7,8 +7,11 @@ const apiUrl_ing = 'https://localhost:44344/api/ingredients'
 export default function IngredientList(props) {
 const [ingredients, setIngredients] = useState([]);
 
+
+
 //const ingredientsIdsList={};
 const ingredientsList ={};
+
 
 const getDataFromChild=(id,calories,check)=>{
 

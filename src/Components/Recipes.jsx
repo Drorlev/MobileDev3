@@ -27,7 +27,7 @@ const Recipes = (props) => {
               (result) => {
                 console.log("fetch btnFetchGetStudents= ", result);
                 let recip =result.map(rec => 
-                    <Recipe key={rec.Id} image={rec.Image} name={rec.Name} method={rec.CookingMethod} time={rec.Time} calories={rec.TotalCalories}/>
+                    <Recipe key={rec.Id} id={rec.Id} image={rec.Image} name={rec.Name} method={rec.CookingMethod} time={rec.Time} calories={rec.TotalCalories}/>
                 );
                 setRecipes(recip)
                 
