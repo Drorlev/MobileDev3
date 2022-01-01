@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap';
     const Ingredient = (props) => {
 
       const btnTellPapa = (event) => {
-        props.send2Papa(props.id,event.target.checked);
+        props.send2Papa(props.id,props.calories,event.target.checked);
       }
         return (
         <Card style={{ width: '16rem', display:'inline-block'}}>

@@ -7,29 +7,30 @@ const apiUrl_ing = 'https://localhost:44344/api/ingredients'
 export default function IngredientList(props) {
 const [ingredients, setIngredients] = useState([]);
 
+//const ingredientsIdsList={};
+const ingredientsList ={};
 
+const getDataFromChild=(id,calories,check)=>{
 
+  //new dict
+  ingredientsList[`${id}`]={'check':check,'calories':calories};
+  console.log("ingredientsList Dictonary ",ingredientsList)
 
-const ingredientsIdsList={};
-
-
-const getDataFromChild=(id,check)=>{
-  
-  console.log("Father ",id,check);
-  ingredientsIdsList[`${id}`]=check;
-  console.log("id list ",ingredientsIdsList)
   TellCreateRecipe();
 }
 const TellCreateRecipe = () => {
+    let totalCalories=0;
     let values=[];
-    let filtered = Object.fromEntries(Object.entries(ingredientsIdsList).filter(([k,v]) => v === true));
-    for (const key in filtered) {
-      values.push(parseInt(key));
-    }
 
-    console.log("filterd list",filtered);
-    console.log("values list",values);
-    props.send2Papa(values);
+    console.log("new Dict");
+    let New_filtered = Object.fromEntries(Object.entries(ingredientsList).filter(([k,v]) => v.check === true));
+    for (const key in New_filtered) {
+      values.push(parseInt(key));
+      console.log(New_filtered[key].calories)
+      totalCalories+=New_filtered[key].calories;
+    }
+    console.log("new Dict", New_filtered);
+    props.send2Papa(values, totalCalories);
 }
 
 const getIng=()=>{

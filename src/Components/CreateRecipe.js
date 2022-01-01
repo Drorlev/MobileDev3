@@ -9,15 +9,18 @@ let ingredientsIDlist=[];
 const apiUrl = 'https://localhost:44344/api/recipes'
 
 export default function CreateRecipe() {
+    let totalCalories;
     const  navigate = useNavigate();
     
     const btngo2Home = () => {
 		  navigate('/');
     }
 
-    const getDataFromChild=(list)=>{
+    const getDataFromChild=(list, calories)=>{
       ingredientsIDlist=list;
-      console.log("GrandFather ",list);
+      totalCalories=calories;
+      console.log("GrandFather ",ingredientsIDlist);
+      console.log("GrandFather calories ",calories);
     }
 
     //handlethat shit!!
@@ -28,6 +31,7 @@ export default function CreateRecipe() {
         Image: "",
         CookingMethod: "",
         Time: "",
+        TotalCalories: 0,
       };
       const apiUrl = 'https://localhost:44344/api/recipes?IngId='+ingID
       fetch(apiUrl, {
@@ -61,7 +65,8 @@ export default function CreateRecipe() {
             Name: event.target[0].value,
             Image: event.target[1].value,
             CookingMethod: event.target[2].value,
-            Time: event.target[3].value
+            Time: event.target[3].value,
+            TotalCalories: totalCalories
           };
 
         console.log(recipe)

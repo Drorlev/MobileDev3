@@ -7,7 +7,6 @@ const apiUrl ='https://localhost:44344/api/recipes';
 
 
 const Recipes = (props) => {
-    
     const [recipes, setRecipes] = useState([]);
     
     const getRecipes = () => {
@@ -28,7 +27,7 @@ const Recipes = (props) => {
               (result) => {
                 console.log("fetch btnFetchGetStudents= ", result);
                 let recip =result.map(rec => 
-                    <Recipe/>
+                    <Recipe key={rec.Id} image={rec.Image} name={rec.Name} method={rec.CookingMethod} time={rec.Time} calories={rec.TotalCalories}/>
                 );
                 setRecipes(recip)
                 
@@ -45,11 +44,7 @@ const Recipes = (props) => {
   
   
     return (
-          <div style={{
-            
-            
-            }}>
-
+          <div className='Recipes'>
               {recipes}
           </div>
           );

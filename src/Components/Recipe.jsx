@@ -29,7 +29,7 @@ const Recipe = (props) => {
               <Card.Text>Dish name: {props.name}</Card.Text>
               <Card.Text>Cooking method: {props.method}</Card.Text>
               <Card.Text>Total cooking time: {props.time} minutes</Card.Text>
-              <Card.Text>total calories:: {props.calories}</Card.Text>
+              <Card.Text>total calories: {props.calories}</Card.Text>
           </Card.Body>
           <Button onClick={handleShow}>Show Ingredinet</Button>
           <ModalIng show={show} send2Papa={getDataFromChild}/>
