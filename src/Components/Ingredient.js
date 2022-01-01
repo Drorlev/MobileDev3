@@ -3,10 +3,6 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card } from 'react-bootstrap';
 
- 
-  
-  
-
     const Ingredient = (props) => {
 
       const btnTellPapa = (event) => {
